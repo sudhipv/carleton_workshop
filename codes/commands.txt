@@ -1,0 +1,91 @@
+########### COMMANDS ##############
+
+
+1. ssh user01@edia-crltn.c3.ca
+
+
+
+
+2.ls
+3.sinfo
+4.ls projects/
+5. cd ../scratch
+    Go to website "https://github.com/sudhipv/carleton_workshop/tree/main"
+5.git clone https://github.com/sudhipv/carleton_workshop.git
+
+6.cd carleton_workshop/codes/
+7.ls
+8. ml
+9. module avail python
+9. module spider python
+10. module load python
+11. ml
+12. module load mpi4py
+13.mpiexec -n 4 python mpi_helloworld.py
+14. mpiexec -n 8 python mpi_helloworld.py
+15.scontrol show node
+16. vi run_code.sh
+Submitted batch job 1
+
+17.sq
+18. more mpi_helloworld-1.out
+World Size: 8   Rank: 5
+World Size: 8   Rank: 6
+World Size: 8   Rank: 4
+World Size: 8   Rank: 7
+World Size: 8   Rank: 2
+World Size: 8   Rank: 0
+World Size: 8   Rank: 3
+World Size: 8   Rank: 1
+
+19. more serial_factorize.py
+
+20.vi run_code.sh
+
+21.sbatch run_code.sh
+
+22.sq
+          JOBID     USER      ACCOUNT           NAME  ST  TIME_LEFT NODES CPUS TRES_PER_N MIN_MEM NODELIST (REASON)
+              2   user01 def-sponsor0 serial_factori   R       9:57     1    2        N/A    256M cnode1 (None)
+
+
+23.more serial_factorize-2.out
+Serial Execution Time: 3.4196 seconds
+Example Result (first 5): [np.int64(59), np.int64(2003), np.int64(2521), np.int64(232919), np.int64(59863)]
+
+24. vi run_code.sh
+25. sbatch run_code.sh
+
+
+27. scp user01@edia-crltn.c3.ca:/home/user01/scratch/carleton_workshop/codes/scalability.pdf ./
+
+
+28. scp ./desktop/Sudhi_CM.pdf user01@edia-crltn.c3.ca:/home/user01/scratch/carleton_workshop/codes/
+
+
+29. sbatch run_code_GPU.sh
+
+30. Fri Mar 21 16:15:40 2025
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.54.15              Driver Version: 550.54.15      CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  GRID V100D-8C                  On  |   00000000:00:05.0 Off |                    0 |
+| N/A   N/A    P0             N/A /  N/A  |       0MiB /   8192MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+31.
+
+
